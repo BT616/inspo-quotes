@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Quotations Array Assignment</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: arial, sans-serif;
+            font-size: 100%;
+            margin: 0px;
+            background-color: #acacac;
+        }
+
+        .bg-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(images/background.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            height: 75vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bg-text {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.5em;
+            color: #e5eef6;
+            text-shadow: 2px 2px #000;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color: #000;
+            text-shadow: 2px 2px #e5eef6;
+            margin-top: 1.5em;
+        }
+
+        .quote {
+            display: block;
+            width: 85vw;
+            margin-top: 1.5em;
+            border: 2px solid #e5eef6;
+            border-radius: 15px;
+            color: #e5eef6;
+            font-size: 1.75em;
+            padding: 15px;
+        }
+
+        main {
+            background-color: #e5eef6;
+            width: 80%;
+            margin: 50px auto;
+            border-radius: 20px;
+            padding: 10px;
+        }
+
+        form {
+            width: 80%;
+            margin: 20px auto 50px auto;
+        }
+
+        input[type=button],
+        input[type=reset] {
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        // generate random number between and including 0 to 7 to match array of 8 items
+        let num = Math.floor(Math.random() * 8) + 1;
+
+        // retrive value from text box
+        let entry = document.getElementById('entry').value
+        
+    </script>
+
+
+</head>
+
+<body>
+
+    <section class="bg-image">
+        <header>
+            <h1>Inspirational Quotations</h1>
+        </header>
+        <div class="bg-text">
+            <span class="quote" id="quote"> </span> <!-- random quote here -->
+        </div>
+    </section>
+
+    <main>
+        <h2>Featured Quotations</h2>
+
+        <!-- all quotes here -->
+        <div id="allquotes">
+
+        </div>
+    </main>
+
+    <form>
+        <label>Add a quotation:</label>
+        <input type="text" id="entry">
+
+        <input type="button" value="Click to Add Quote" id="btnAdd">
+        <input type="button" value="Click to Remove Quote" id="btnRemove">
+        <input type="reset" value="Clear Textbox">
+
+    </form>
+
+
+    <script>
+        // function calls here
+
+        var displayQuote = document.getElementById("quote")
+        // selects quote based off of random number or "num"
+        function randomQuote() {
+
+
+            if (num === 1) {
+                result = "The greatest glory in living lies not in never falling, but in rising every time we fall. -Nelson Mandela";
+            }
+            if (num === 2) {
+                result = "You will face many defeats in life, but never let yourself be defeated. -Maya Angelou";
+            }
+            if (num === 3) {
+                result = "In the end, it's not the years in your life that count. It's the life in your years. -Abraham Lincoln";
+            }
+            if (num === 4) {
+                result = "There are no secrets to success. It is the result of preparation, hard work, and learning from failure. -Colin Powell";
+            }
+            if (num === 5) {
+                result = "Believe you can and you're halfway there. -Theodore Roosevelt";
+            }
+            if (num === 6) {
+                result = "It does not matter how slowly you go as long as you do not stop. -Confucius";
+            }
+            if (num === 7) {
+                result = "What you get by achieving your goals is not as important as what you become by achieving your goals. -Zig Ziglar";
+            }
+            if (num === 8) {
+                result = "You are never too old to set another goal or to dream a new dream. -C.S. Lewis";
+            }
+
+            displayQuote.innerHTML = result;
+        }
+        //gets quotes from the array and sorts through them with a for loop
+        let quotes = [];
+        function getQuotes() {
+
+            var allQuotes = [
+
+                "The greatest glory in living lies not in never falling, but in rising every time we fall. -Nelson Mandela",
+
+                "You will face many defeats in life, but never let yourself be defeated. -Maya Angelou",
+
+                "In the end, it's not the years in your life that count. It's the life in your years. -Abraham Lincoln",
+
+                "There are no secrets to success. It is the result of preparation, hard work, and learning from failure. -Colin Powell",
+
+                "Believe you can and you're halfway there. -Theodore Roosevelt",
+
+                "It does not matter how slowly you go as long as you do not stop. -Confucius",
+
+                "What you get by achieving your goals is not as important as what you become by achieving your goals. -Zig Ziglar",
+
+                "You are never too old to set another goal or to dream a new dream. -C.S. Lewis"
+            ];
+
+            for (let i = 0; i < allQuotes.length; i++) {
+                quotes += allQuotes[i] + "<br>";
+            }
+            document.getElementById('allquotes').innerHTML = quotes
+        }
+
+        getQuotes();
+        randomQuote();
+
+    </script>
+
+
+
+
+</body>
+
+</html>
